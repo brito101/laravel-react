@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text, setLoading, setData }) => {
+const Button = ({ text, setLoading, setData, setProduct }) => {
     async function handleClick() {
         setLoading(true);
 
@@ -11,6 +11,9 @@ const Button = ({ text, setLoading, setData }) => {
         const json = await response.json();
         setData(json);
         setLoading(false);
+        setProduct(text);
+
+        localStorage.setItem("product", text);
     }
 
     return (
