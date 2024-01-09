@@ -1,14 +1,15 @@
 import React from "react";
+import { GlobalContext } from "./GlobalContext";
 
-const Product = ({ name, properties }) => {
+const Product = () => {
+    const { products } = React.useContext(GlobalContext);
+    if (products === null) return null;
     return (
-        <div style={{ border: "1px solid", margin: "1rem 0", padding: "1rem" }}>
-            <p>{name}</p>
-            <ul>
-                {properties.map((prop) => (
-                    <li key={prop}>{prop}</li>
-                ))}
-            </ul>
+        <div>
+            Produtos:{" "}
+            {products.map((product) => (
+                <li key={product.id}>{product.nome}</li>
+            ))}
         </div>
     );
 };
