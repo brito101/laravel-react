@@ -53,7 +53,9 @@ label {
     margin-bottom: 0.25rem;
 }
 
-input,
+input[type="text"],
+input[type="password"],
+input[type="email"],
 textarea {
     display: block;
     border: 1px solid #ccc;
@@ -62,6 +64,7 @@ textarea {
     border-radius: var(--radius);
     background: #eee;
     transition: 0.2s;
+    margin-bottom: 1rem;
 
     &:focus {
         outline: none;
