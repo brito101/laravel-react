@@ -1,5 +1,6 @@
 import React from "react";
 import Radio from "./Form/Radio";
+import Dog from "../img/dog.svg?react";
 
 const questions = [
     {
@@ -67,23 +68,26 @@ const App = () => {
     }
 
     return (
-        <form onSubmit={(e) => e.preventDefault()}>
-            {questions.map((question, index) => (
-                <Radio
-                    active={slide === index}
-                    key={index}
-                    onChange={handleChange}
-                    value={answers[question.id]}
-                    {...question}
-                />
-            ))}
+        <>
+            <Dog />
+            <form onSubmit={(e) => e.preventDefault()}>
+                {questions.map((question, index) => (
+                    <Radio
+                        active={slide === index}
+                        key={index}
+                        onChange={handleChange}
+                        value={answers[question.id]}
+                        {...question}
+                    />
+                ))}
 
-            {result ? (
-                <p>{result}</p>
-            ) : (
-                <button onClick={handleClick}>Próxima</button>
-            )}
-        </form>
+                {result ? (
+                    <p>{result}</p>
+                ) : (
+                    <button onClick={handleClick}>Próxima</button>
+                )}
+            </form>
+        </>
     );
 };
 
